@@ -1,0 +1,3 @@
+~/Workspace$ ls | xargs -I '{}' git-st-one '{}'
+
+~/Workspace$ git-st
