@@ -1,0 +1,15 @@
+#!/bin/bash
+#usage: ls | xargs -I '{}' git-st-one '{}'
+
+projPath=$(pwd)/$1
+cd $projPath
+isGitProj=$(ls -a | grep '^\.git$')
+if [ "$isGitProj" == ".git" ]; then
+	status=$(git st)
+	hasUntracked=$(echo $status | grep -i 'Untracked files')
+	hasChange=$(echo $status | grep -i 'Changes ')
+	if [ "$hasUntracked" != "" ] || [ "$hasChange" != "" ]; then
+		echo $1
+		git st
+	fi
+fi

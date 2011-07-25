@@ -1,3 +1,16 @@
-~/Workspace$ ls | xargs -I '{}' git-st-one '{}'
+Why write it
 
-~/Workspace$ git-st
+	Many, many projects, but I forget what the last modified
+
+
+How to use
+
+	cd /usr/bin/
+
+	sudo ln -s ~/Workspace/check-all-project-status/git-st-all
+
+	sudo ln -s ~/Workspace/check-all-project-status/git-st-one
+
+	cd ~/Workspace
+
+	git-st-all
