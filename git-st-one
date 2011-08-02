@@ -5,10 +5,9 @@ projPath=$(pwd)/$1
 cd $projPath
 isGitProj=$(ls -a | grep '^\.git$')
 if [ "$isGitProj" == ".git" ]; then
-	status=$(git st)
-	hasUntracked=$(echo $status | grep -i 'Untracked files')
-	hasChange=$(echo $status | grep -i 'Changes ')
-	if [ "$hasUntracked" != "" ] || [ "$hasChange" != "" ]; then
+	status=$(git status)
+	status=$(echo $status)
+	if [ "$status" != "# On branch master nothing to commit (working directory clean)" ]; then
 		echo $1
 		git st
 	fi
