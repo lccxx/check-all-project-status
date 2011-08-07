@@ -14,3 +14,6 @@ How to use
 	cd ~/Workspace
 
 	git-st-all
+
+Add to git alias
+	git config --global alias.all-st "st-all"
