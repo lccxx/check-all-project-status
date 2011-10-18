@@ -9,8 +9,6 @@ How to use
 
 	sudo ln -s ~/Workspace/check-all-project-status/git-st-all
 
-	sudo ln -s ~/Workspace/check-all-project-status/git-st-one
-
 	cd ~/Workspace
 
 	git-st-all
