@@ -2,14 +2,9 @@
 #usage: ls | xargs -I '{}' git-st-one '{}'
 
 DEFAULT_STAT="# On branch master nothing to commit (working directory clean)"
-projPath=$(pwd)/$1
-cd $projPath
-isGitProj=$(ls -a | grep '^\.git$')
-if [ "$isGitProj" == ".git" ]; then
-	status=$(git status)
-	status=$(echo $status)
-	if [ "$status" != "$DEFAULT_STAT" ]; then
-		echo $1
-		git status
-	fi
+
+cd $(pwd)/$1
+git_status=$(git status)
+if [ "$(echo $git_status)" != "$DEFAULT_STAT" ]; then
+  echo -e "$1\n$git_status"
 fi
