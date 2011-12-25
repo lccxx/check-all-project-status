@@ -1,3 +1,12 @@
 #!/bin/bash
 
-ls | xargs -I '{}' $(dirname $(readlink -f $0))/git-st-one '{}'
+DEFAULT_STAT="# On branch master nothing to commit (working directory clean)"
+
+for p in $(ls); do
+  cd $p
+  git_status=$(git status)
+  if [ "$(echo $git_status)" != "$DEFAULT_STAT" ]; then
+    echo -e "$p\n$git_status"
+  fi
+  cd ..
+done
