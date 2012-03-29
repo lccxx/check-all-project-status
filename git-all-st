@@ -3,11 +3,10 @@
 DEFAULT_STAT="# On branch master
 nothing to commit (working directory clean)"
 
-for p in $(ls); do
-  cd $p
-  git_status=$(git status)
+for git in `tree / -adfi | grep \.git$`; do
+  p=`dirname $git`; cd $p
+  git_status=`git status`
   if [ "$git_status" != "$DEFAULT_STAT" ]; then
     echo -e "$p\n$git_status"
   fi
-  cd ..
 done
