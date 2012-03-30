@@ -6,7 +6,7 @@ nothing to commit (working directory clean)"
 dir=$1; if [ "$dir" == "" ]; then dir="/"; fi
 cdr=`pwd`
 
-for git in `tree $dir -adfi | grep "\.git$"`; do
+for git in `find $dir -type d -name ".git"`; do
   p=`dirname $git`; cd $p
   git_status=`git status`
   if [ "$git_status" != "$DEFAULT_STAT" ]; then
