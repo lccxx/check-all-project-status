@@ -3,7 +3,7 @@
 DEFAULT_STAT="# On branch master
 nothing to commit (working directory clean)"
 
-dir=$1; if [ "$dir" == "" ]; then dir="/"; fi
+dir=$1; if [ "$dir" == "" ]; then dir="."; fi
 cdr=`pwd`
 
 for git in `find $dir -type d -name ".git"`; do
